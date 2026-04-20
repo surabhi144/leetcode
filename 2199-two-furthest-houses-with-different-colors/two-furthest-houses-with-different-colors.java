@@ -1,11 +1,12 @@
 class Solution {
     public int maxDistance(int[] colors) {
         int maxD = 0;
-        for(int i = 0; i<colors.length; i++){
-            for(int j = i+1; j<colors.length; j++){
-                if(colors[i] != colors[j])
-                 maxD = Math.max(maxD, j-i);
-            }
+        int n = colors.length;
+        for(int i = 0; i<n; i++){
+            if(colors[i] != colors[0])
+             maxD = Math.max(maxD, i);
+            if(colors[i] != colors[n-1])
+             maxD = Math.max(maxD, n-1-i); 
         }
         return maxD;
     }
