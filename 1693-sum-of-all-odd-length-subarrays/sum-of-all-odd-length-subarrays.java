@@ -3,13 +3,11 @@ class Solution {
         int len = arr.length;
         int sum = 0;
         for(int i = 0; i<len; i++){
-            sum += arr[i];
-            int currSum = arr[i];
-            for(int j = i+1; j<len; j++){
-                currSum += arr[j];
-                if((i + j - 1)%2 == 1 )
-                 sum += currSum;
-            }
+            int subarraysStarting = len - i;
+            int subarraysEnding = i + 1;
+            int totalSubarrays = subarraysStarting * subarraysEnding;
+            int oddSubarrays = totalSubarrays % 2 == 0 ? totalSubarrays/2 : totalSubarrays/2 + 1;
+            sum += arr[i]*oddSubarrays;
         }
         return sum;
     }
