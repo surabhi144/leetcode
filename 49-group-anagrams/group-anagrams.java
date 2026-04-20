@@ -9,7 +9,6 @@ class Solution {
             if(!map.containsKey(key))
              map.put(key, new ArrayList<>());
             map.get(key).add(str); 
-            // map.getOrDefault(key, new ArrayList<>()).add(str); 
         }
         return new ArrayList<>(map.values());
     }
